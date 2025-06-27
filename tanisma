@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanışalım mı, Rümeysa?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      margin: 0;
+      height: 100vh;
+      background-color: #f2f2f2;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #333;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .yes {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+
+    .no {
+      background-color: #f44336;
+      color: white;
+      border: none;
+    }
+
+    .yes-grow {
+      font-size: 24px;
+      padding: 15px 30px;
+    }
+
+    .heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 200px;
+      color: red;
+      animation: heartbeat 1s infinite;
+      opacity: 0;
+    }
+
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Tanışalım mı, Rümeysa?</h1>
+  
+  <button class="btn yes" id="yesButton" onclick="response('Evet')">Evet</button>
+  <button class="btn no" onclick="response('Hayır')">Hayır</button>
+
+  <p id="result"></p>
+
+  <div class="heart" id="heart">❤</div>
+
+  <script>
+    function response(answer) {
+      const yesButton = document.getElementById("yesButton");
+      const heart = document.getElementById("heart");
+      const result = document.getElementById("result");
+
+      if (answer === "Evet") {
+        result.innerHTML = "Harika! Tanıştığımıza memnun oldum 😊";
+        heart.style.opacity = 1; // Kalp animasyonunu göster
+      } else if (answer === "Hayır") {
+        result.innerHTML = "Anladım, saygı duyarım. 🙏";
+        yesButton.classList.add("yes-grow"); // Evet butonunu büyüt
+      }
+    }
+  </script>
+
+</body>
+</html>
